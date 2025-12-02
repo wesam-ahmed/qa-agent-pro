@@ -1,0 +1,130 @@
+============================================
+  QA AGENT PRO - SETUP INSTRUCTIONS
+============================================
+
+✅ SOLUTION TO CORS ERROR:
+The Anthropic API cannot be called directly from the browser.
+We've created a backend proxy server to solve this issue.
+
+============================================
+  OPTION 1: AUTOMATED SETUP (EASIEST)
+============================================
+
+Run this command:
+  setup.bat
+
+Then start both servers:
+  start-dev.bat
+
+============================================
+  OPTION 2: MANUAL SETUP
+============================================
+
+STEP 1: Create the API Key File
+--------------------------------
+Create a new file: server\.env
+
+Add this content:
+ANTHROPIC_API_KEY=your_actual_api_key_here
+PORT=5000
+
+
+STEP 2: Install Dependencies
+-----------------------------
+npm install
+cd server
+npm install
+cd ..
+
+
+STEP 3: Start the Servers
+--------------------------
+Open Terminal 1:
+  cd server
+  npm start
+
+Open Terminal 2:
+  npm start
+
+
+STEP 4: Access the App
+-----------------------
+Frontend: http://localhost:3000
+Backend:  http://localhost:5000
+
+============================================
+  WHAT WAS FIXED?
+============================================
+
+❌ BEFORE: Direct API calls from browser → CORS Error
+✅ AFTER:  Browser → Backend Proxy → Anthropic API
+
+🆕 NEW FEATURE: Auto-Continuation
+- Automatically handles large responses
+- Makes multiple requests if needed
+- Assembles them seamlessly
+- No more JSON parse errors!
+- See AUTO_CONTINUATION.md for details
+
+Files Created:
+- server/index.js      → Backend proxy server
+- server/package.json  → Backend dependencies
+- src/config.ts        → API configuration
+- setup.bat           → Automated setup
+- start-dev.bat       → Easy server start
+
+Files Modified:
+- src/QAAgentPro.tsx  → Uses proxy instead of direct API calls
+- package.json        → Updated dependencies
+- dockerfile          → Includes backend server
+- README.md           → Updated instructions
+
+============================================
+  SECURITY NOTES
+============================================
+
+✅ Your API key is stored server-side only
+✅ The .env file is ignored by Git
+✅ Never share your .env file
+✅ Never commit API keys to repositories
+
+============================================
+  TROUBLESHOOTING
+============================================
+
+Problem: JSON Parse Error / "Unterminated string"
+Solution: User story is too long. Shorten it or break into parts.
+         See TROUBLESHOOTING.md for details.
+
+Problem: "API key not configured"
+Solution: Make sure server/.env exists with your API key
+
+Problem: "Cannot connect to backend"
+Solution: Make sure backend server is running on port 5000
+
+Problem: Still getting CORS errors
+Solution: Check that backend is running and frontend is calling localhost:5000
+
+Problem: Port already in use
+Solution: Change PORT in server/.env to a different number
+
+📖 For detailed troubleshooting, see: TROUBLESHOOTING.md
+
+============================================
+  NEXT STEPS
+============================================
+
+1. Run setup.bat (or follow manual steps)
+2. Start both servers
+3. Open http://localhost:3000
+4. Start generating test cases!
+
+For detailed info, see:
+- QUICKSTART.md  → Quick start guide
+- README.md      → Full documentation
+- server/README.md → Backend API docs
+
+============================================
+
+Happy Testing! 🚀
+
