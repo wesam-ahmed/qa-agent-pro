@@ -140,5 +140,5 @@ Having issues? Check out [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for common pro
 
 ## Support
 
-For support and questions, contact AIM Technologies.
+For support and questions, contact wesam ahmed.
 # qa-agent
