@@ -115,9 +115,7 @@ The application will be available at [http://localhost:7320](http://localhost:73
 - Anthropic Claude API
 - TailwindCSS
 
-## License
 
-Proprietary - AIM Technologies
 
 ## Advanced Features
 
